@@ -1,0 +1,77 @@
+
+  Scenario Outline: Delete Schedule Request
+    Given The user login to the app with the credentials "<user>" and "<password>"
+    When The user deletes the schedule for the "<email>"
+    Then The Schedule should be deleted "<email>"
+
+    Examples:
+      |user         |password   |email                |
+      |automationhr2|123qwe123  |davidbow@yopmail.com |
+
+
+  Scenario Outline: Delete Profile
+    Given The user login to the app with the credentials "<user>" and "<password>"
+    When  The user deletes the "<profile>"
+    Then  The "<profile>" should be deleted
+
+    Examples:
+      |user         |password   |profile            |
+      |automationic2|123qwe123  |profile gaspar     |
+
+
+
+
+Feature: As QA I want to be able to clean the data before run the tests
+
+  Scenario Outline: Delete Schedule Request
+    Given The user login to the app with the credentials "<user>" and "<password>"
+    When The user deletes the schedule for the "<email>"
+    Then The Schedule should be deleted "<email>"
+
+    Examples:
+      |user         |password   |email                |
+      |admin|admin  |davidbow@yopmail.com |
+
+
+  Scenario Outline: Delete Profile
+    Given The user login to the app with the credentials "<user>" and "<password>"
+    When  The user deletes the "<profile>"
+    Then  The "<profile>" should be deleted
+
+    Examples:
+      |user         |password   |profile            |
+      |admin|admin  |profile gaspar     |
+
+
+
+  Scenario Outline: Delete Candidate
+    Given The user login to the app with the credentials "<user>" and "<password>"
+    When  The user deletes the "<candidate>"
+    Then  The "<candidate>" should be deleted
+
+    Examples:
+      |user         |password   |candidate           |
+      |admin|admin   |David Bowie         |
+
+
+
+
+
+      Scenario Outline:
+      Given that I login into the InterviewApp as HR for check with "<userhr>" and "<password>"
+      And enter into Schedule Request page for check
+      And I get the Schedule Id using the "<name>", "<email>" and "<profile>"
+      Then I delete the Schedule
+      Given that I login into the InterviewApp as IC for check with "<useric>" and "<password>"
+      And I enter into Interview Profile page and I search the profile "<profile>"
+      Then I delete the profile "<profile>"
+      Given that I login into the InterviewApp as HR for check with "<userhr>" and "<password>"
+      And I enter into Exercises page
+      Then I delete the exercises for profile "<profile>"
+      And enter into Candidate's page for check
+      When I enter the "<email>" and I find the candidate
+      Then I delete the candidate
+
+      Examples:
+      |name|email|profile|userhr|password|useric|
+      |David Bowie|davidbow@yopmail.com|Profile OneOfEach2|automationhr2|123qwe123|automationic2|
